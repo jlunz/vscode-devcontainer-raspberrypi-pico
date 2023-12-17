@@ -5,9 +5,11 @@ ARG VARIANT="ubuntu-22.04"
 
 FROM mcr.microsoft.com/vscode/devcontainers/cpp:0-$VARIANT
 
-ENV TOOLCHAINURL="https://developer.arm.com/-/media/Files/downloads/gnu/11.3.rel1/binrel"
-ENV TOOLCHAINARCHIVE="arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi.tar.xz"
-ENV TOOLCHAINDIR="arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi"
+# it is _r_ for the download link, but _R_ after untar...
+ENV TOOLCHAINVERSION="13.2.Rel1"
+ENV TOOLCHAINURL="https://developer.arm.com/-/media/Files/downloads/gnu/${TOOLCHAINVERSION}/binrel"
+ENV TOOLCHAINARCHIVE="arm-gnu-toolchain-${TOOLCHAINVERSION}-x86_64-arm-none-eabi.tar.xz"
+ENV TOOLCHAINDIR="arm-gnu-toolchain-${TOOLCHAINVERSION}-x86_64-arm-none-eabi"
 
 # [Optional] Uncomment this section to install additional packages.
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
