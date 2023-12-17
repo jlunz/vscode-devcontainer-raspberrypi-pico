@@ -6,12 +6,17 @@
 		"dockerfile": "Dockerfile"
 	},
 	"runArgs": [
+		"--userns=keep-id",
 		"--cap-add=SYS_PTRACE",
 		"--security-opt",
 		"seccomp=unconfined",
-		"--device=/dev/bus/usb",
-		"--device=/dev/ttyACM0"
+		"--device=/dev/bus/usb"
+		// "--device=/dev/ttyACM0"
 	],
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,Z",
+	"workspaceFolder": "/workspace",
+	"containerUser": "vscode",
+	"updateRemoteUserUID": true,
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
 		"terminal.integrated.profiles.linux": {
@@ -22,11 +27,8 @@
 	},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"ms-vscode.cpptools",
+		"ms-vscode.cpptools-extension-pack",
 		"marus25.cortex-debug",
-		"ms-vscode.cmake-tools",
-		"twxs.cmake",
-		"eamodio.gitlens",
 		"xaver.clang-format",
 		"chris-hock.pioasm"
 	],
