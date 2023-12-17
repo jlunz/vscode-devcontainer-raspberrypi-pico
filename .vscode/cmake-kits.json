@@ -1,0 +1,8 @@
+{
+  "name": "GCC 13.2.1 arm-none-eabi",
+  "compilers": {
+    "C": "/apps/gcc-arm-none/bin/arm-none-eabi-gcc",
+    "CXX": "/apps/gcc-arm-none/bin/arm-none-eabi-g++"
+  },
+  "isTrusted": true
+}
